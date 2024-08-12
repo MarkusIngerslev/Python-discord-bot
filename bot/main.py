@@ -1,21 +1,25 @@
 # Imports
 import discord
 import os
-
-# Load the .env file that resides on the same level as the script.
+from discord.ext import commands
 from dotenv import load_dotenv
-load_dotenv()
 
-# GRAB THE API TOKEN FROM THE .ENV FILE.
-DISCORD_TOKEN = os.getenv("DiscordToken")
+# Load .env file 
+load_dotenv()
+DISCORD_TOKEN = os.getenv("DiscordToken") 
 if DISCORD_TOKEN != None: # Check if the token is loaded
     print(f"Discord Token is loaded") 
 else: # If the token is not loaded, check DISCORD_TOKEN
     print(f"Discord Token: {DISCORD_TOKEN}")
 
-# DEFINE THE INTENTS. YOU CAN ADD MORE INTENTS IF YOU NEED THEM.
+# Bot setup
 intents = discord.Intents.default()
 intents.message_content = True  # Required to receive message content
+
+bot = commands.Bot(command_prefix="$", intents=intents)
+
+# Load cogs
+bot.load_extension("cogs.example")
 
 # GETS THE CLIENT OBJECT FROM DISCORD.PY. CLIENT IS SYNONYMOUS WITH BOT.
 bot = discord.Client(intents=intents)
