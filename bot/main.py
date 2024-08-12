@@ -19,10 +19,7 @@ intents.message_content = True  # Required to receive message content
 bot = commands.Bot(command_prefix="$", intents=intents)
 
 # Load cogs
-bot.load_extension("cogs.example")
-
-# GETS THE CLIENT OBJECT FROM DISCORD.PY. CLIENT IS SYNONYMOUS WITH BOT.
-bot = discord.Client(intents=intents)
+bot.load_extension("cogs.example_cog")
 
 # EVENT LISTENER FOR WHEN THE BOT HAS SWITCHED FROM OFFLINE TO ONLINE.
 @bot.event
