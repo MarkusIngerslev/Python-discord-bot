@@ -1,17 +1,17 @@
-# IMPORT DISCORD.PY. ALLOWS ACCESS TO DISCORD'S API.
+# Imports
 import discord
-
-# IMPORT THE OS MODULE.
 import os
 
-# IMPORT LOAD_DOTENV FUNCTION FROM DOTENV MODULE.
+# Load the .env file that resides on the same level as the script.
 from dotenv import load_dotenv
-
-# LOADS THE .ENV FILE THAT RESIDES ON THE SAME LEVEL AS THE SCRIPT.
 load_dotenv()
 
 # GRAB THE API TOKEN FROM THE .ENV FILE.
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+DISCORD_TOKEN = os.getenv("DiscordToken")
+if DISCORD_TOKEN != None: # Check if the token is loaded
+    print(f"Discord Token is loaded") 
+else: # If the token is not loaded, check DISCORD_TOKEN
+    print(f"Discord Token: {DISCORD_TOKEN}")
 
 # DEFINE THE INTENTS. YOU CAN ADD MORE INTENTS IF YOU NEED THEM.
 intents = discord.Intents.default()
